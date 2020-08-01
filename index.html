@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Shayna Template" />
+    <meta name="keywords" content="Shayna, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Elfarian | Blog</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/themify-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="header-top">
+            <div class="container">
+                <div class="ht-left">
+                    <div class="mail-service">
+                        <i class=" fa fa-envelope"></i> elfarianvirdausa93@gmail.com
+                    </div>
+                    <div class="phone-service">
+                        <i class=" fa fa-phone"></i> +628 2333361013
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="inner-header">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <img src="img/logo_website_shayna.png" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+
+    <!-- Women Banner Section Begin -->
+    <section class="women-banner spad">
+        <div class="container-fluid"  id="app">
+
+            <div class="row">
+                <div class="p-0 m-0 mt-4 col-lg-6">
+                <div class="user-checkout">
+                                
+                                    <div class="form-group">
+                                        <label for="namaLengkap">URL</label>
+                                        <input type="text" class="form-control url" placeholder="Masukan URL"v-model="url"
+                                        >
+                                    </div>
+                                     <div class="form-row align-items-center">
+                                        <div class="col-auto">
+                                          <input type="text" class="form-control mb-2 kataKunci" 
+                                          v-model="kataKunci" placeholder="Masukan Kata kunci">
+                                        </div>
+                                        <div class="col-auto center">
+                                          <div class="form-group proceed-checkout">
+                                            <button class="bersihkan btn btn-block proceed-btn" 
+                                            @click="bersihkan"
+                                            >
+                                              Bersihkan
+                                            </button>
+                                        </div>
+                                        </div>
+                                      </div>
+                                       <div class="form-group">
+                                        <button class="pertama btn btn-primary mb-2"
+                                        @click="navigasi('first')"
+                                        :disable="!paginasi['first']"
+                                        >First</button>
+                                        <button class="sebelumnya btn btn-primary mb-2"
+                                         @click="navigasi('prev')"
+                                        :disable="!paginasi['prev']"
+                                        >Prev</button>
+                                        <button class="selanjutnya btn btn-primary mb-2"
+                                         @click="navigasi('next')"
+                                        :disable="!paginasi['next']"
+                                        >Next</button>
+                                        <button class="terakhir btn btn-primary mb-2"
+                                         @click="navigasi('last')"
+                                        :disable="!paginasi['last']"
+                                        >Last</button>
+                                    </div>
+                                
+
+                                <div class="total p-0 m-0 mt-4 text-left col-lg-12">
+                    <h3><b>Total Hasil: {{ paginasi.total }}</b></h3>
+                </div>
+                <div class="halaman p-0 m-0 mt-4 text-left col-lg-12">
+                    <h3><b>Halaman ke: {{ paginasi.page }}</b></h3>
+                </div>
+
+                            </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                 <div class="col-lg-12 mt-4">
+                    <div class="daftar">
+                        <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Text</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(hasil, i) in daftarHasil" :key="i">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td> <span v-html="hasil.text" class="product-price"></span></td>
+                            <td>
+                                <span class="product-price">{{ hasil.start }}</span>
+                            </td>
+                            <td> <a :href="`${url}&t=${hasil.start}s`"
+                                        class="btn btn-primary text-white"
+                                     target="_blank">
+                                    <h5>Road to Youtube</h5>
+                                </a></td>
+                            </tr>
+                        
+                        </tbody>
+                        </table>
+                    </div>
+
+                 </div>
+            </div>
+           
+
+
+        </div>
+    </section>
+    <!-- Women Banner Section End -->
+
+    <!-- Instagram Section Begin -->
+    <div class="instagram-photo">
+        <div class="insta-item set-bg" data-setbg="img/insta-1.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="img/insta-2.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="img/insta-3.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="img/insta-4.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="img/insta-5.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+        <div class="insta-item set-bg" data-setbg="img/insta-6.jpg">
+            <div class="inside-text">
+                <i class="ti-instagram"></i>
+                <h5><a href="#">oca_asoy</a></h5>
+            </div>
+        </div>
+    </div>
+    <!-- Instagram Section End -->
+
+    <!-- Partner Logo Section Begin -->
+    <div class="partner-logo">
+        <div class="container">
+            <div class="logo-carousel owl-carousel">
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-1.png" alt="" />
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-2.png" alt="" />
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-3.png" alt="" />
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-4.png" alt="" />
+                    </div>
+                </div>
+                <div class="logo-item">
+                    <div class="tablecell-inner">
+                        <img src="img/logo-carousel/logo-5.png" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Partner Logo Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="#"><img src="img/logo_website_shayna_white.png" alt="" /></a>
+                        </div>
+                        <ul>
+                            <li>Address: Asta Barat, Pamekasan</li>
+                            <li>Phone: +628 2333361013</li>
+                            <li>Email: elfarianvirdausa93@gmail.com</li>
+                        </ul>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="footer-widget">
+                        <h5>Information</h5>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Partner</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Serivius</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h5>My Account</h5>
+                        <ul>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">List My Blog</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-reserved">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="copyright-text">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script>
+                            All rights reserved | Elfarian Dela Virdausa
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <script src="js/jquery.dd.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="utils/index.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          url: 'https://www.youtube.com/watch?v=klnvttPfOUM',
+          kataKunci: '',
+          daftarHasil: [],
+          paginasi: {
+            first: null,
+            last: null,
+            prev: null,
+            next: null,
+            total: 0,
+            page: null
+          }
+        },
+        watch: {
+          kataKunci: pDebounce(async function tanganiKataKunci(kataKunci) {
+            if (kataKunci && kataKunci.length >= 3) {
+              await this.cari(kataKunci, this.url)
+            } else {
+              this.bersihkanHasilDanPaginasi()
+            }
+          }, 250)
+        },
+        methods: {
+          async cari(kataKunci, url, paginasi) {
+            try {
+              const respon = await fetch(
+                paginasi
+                  ? paginasi
+                  : `https://cari-teks-video-api.vercel.app/api/search?q=${kataKunci}&url=${encodeURIComponent(
+                      url
+                    )}`
+              ).then(_ => (_.ok ? _.json() : []))
+
+              this.daftarHasil = respon.data
+              this.paginasi.first = respon.first
+              this.paginasi.last = respon.last
+              this.paginasi.prev = respon.prev
+              this.paginasi.next = respon.next
+              this.paginasi.total = respon.total
+              this.paginasi.page = respon.page
+            } catch (error) {}
+          },
+          async navigasi(type) {
+            if (!this.paginasi[type]) {
+              return
+            }
+            await this.cari(this.kataKunci, this.url, this.paginasi[type])
+          },
+          bersihkan() {
+            this.kataKunci = ''
+            this.bersihkanHasilDanPaginasi()
+          },
+          bersihkanHasilDanPaginasi() {
+            this.daftarHasil = []
+            this.paginasi = {
+              first: null,
+              last: null,
+              prev: null,
+              next: null,
+              total: 0,
+              page: null
+            }
+          }
+        }
+      })
+    </script>
+
+    <script>
+        
+    </script>
+
+
+
+</body>
+
+</html>
